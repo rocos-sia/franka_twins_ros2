@@ -1,0 +1,52 @@
+# Franka Symphony: ROS 2 Dual-Arm Manipulation Framework
+
+> A ROS 2-based control and coordination framework for dual Franka  arms.
+
+
+## ✨ Overview
+
+**Franka Symphony** builds upon several excellent open-source projects to provide a dual-arm manipulation framework.  
+This repository **integrates and extends** the capabilities of [franky](https://github.com/TimSchneider42/franky) to support coordinated control of two Franka Panda robots under ROS 2.
+
+---
+
+## 🤝 Acknowledgments
+
+This project was inspired by and partially based on:
+
+- [franky](https://github.com/TimSchneider42/franky): A high-level C++ and Python interface for real-time Cartesian impedance control of Franka Emika Panda arms.  
+  We use franky as the core low-level control backend for motion primitives.
+- [libfranka](https://github.com/frankaemika/libfranka): Official C++ interface to the Franka Control Interface.
+- The ROS 2 and MoveIt communities.
+
+Special thanks to Tim Schneider for developing franky and making it available under the MIT License.
+
+---
+
+## 📂 Repository Structure
+
+
+---
+
+## ⚙️ Requirements
+
+- Ubuntu 22.04
+- ROS 2 Humble 
+- libfranka == 0.15.0
+- Franka Control Interface (FCI)
+- Franky
+
+---
+
+## 🚀 Quick Start
+
+1️⃣ **Clone this repository**
+```bash
+git clone https://github.com/rocos-sia/franka_twins_ros2.git
+cd franka_twins_ros2
+```
+
+## 📄 License
+
+This project is licensed under the Apache License 2.0.  
+Note that components derived from franky remain subject to the MIT License.
