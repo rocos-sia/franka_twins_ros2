@@ -1,6 +1,6 @@
 # Franka Symphony: ROS 2 Dual-Arm Manipulation Framework
 
-> A ROS 2-based control and coordination framework for dual Franka  arms.
+> A ROS 2-based control and coordination framework for dual Franka arms.
 
 
 ## ✨ Overview
@@ -44,6 +44,29 @@ Special thanks to Tim Schneider for developing franky and making it available un
 ```bash
 git clone https://github.com/rocos-sia/franka_twins_ros2.git
 cd franka_twins_ros2
+```
+
+
+2️⃣ **Install dependencies**
+```bash
+pip install franky-control
+rosdep install -i --from-path src --rosdistro humble -y
+```
+
+3️⃣ **Build the package**
+```bash
+colcon build --symlink-install
+source install/setup.bash
+```
+4️⃣ **Run the example**
+```bash
+#先启动这个程序，它会默认开始循环move()。
+ros2 run franka_twins wave  
+#用ros2 topic pub发布控制信号
+ros2 topic pub /control_signal std_msgs/String "data: 'stop'"  
+#就会停止运动。再发：
+ros2 topic pub /control_signal std_msgs/String "data: 'start'"
+#就重新启动。
 ```
 
 ## 📄 License
