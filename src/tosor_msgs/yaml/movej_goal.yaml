@@ -1,0 +1,7 @@
+command_type: 1  # 指令类型为 MoveJ
+q_movej: [0.0, 0.0, 0.0, 0.0, 0.0, 1.0]  # 设置每个关节的目标位置
+speed_movej: 0.1
+acceleration_movej: 0.1
+time_movej: 0.0
+radius_movej: 0.0
+asynchronous_movej: false

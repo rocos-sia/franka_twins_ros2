@@ -126,6 +126,8 @@ class SignalSubscriber(Node):
                 )
                 self.motion_controller.start()
                 self.get_logger().info("Motion started by signal.")
+        else:
+            pass  # 可以添加其他信号处理逻辑
 def main():
     parser = ArgumentParser()
     parser.add_argument("--host", default="172.16.0.2", help="FCI IP of the robot")

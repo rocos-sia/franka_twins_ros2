@@ -69,6 +69,29 @@ ros2 topic pub /control_signal std_msgs/String "data: 'start'"
 #就重新启动。
 ```
 
+```bash
+#单夹爪
+ros2 launch gripper gripper.launch.py
+#用ros2 topic pub发布控制信号
+ros2 topic pub /right/gripper/command tosor_msgs/msg/GripperDistance "{distance: 100}"
+
+#双夹爪
+ros2 launch gripper gripper_dual.launch.py
+#用ros2 topic pub发布控制信号
+ros2 topic pub /left/gripper/command tosor_msgs/msg/GripperDistance "{distance: 100}"
+ros2 topic pub /right/gripper/command tosor_msgs/msg/GripperDistance "{distance: 100}"
+```
+
+```bash
+#相机
+pip install pyrealsense2
+pip install mediapipe
+pip install --upgrade pip
+pip install "protobuf>=5.26.1,<6.0dev"
+pip install "grpcio>=1.64.0"
+pip install ultralytics
+
+```
 ## 📄 License
 
 This project is licensed under the Apache License 2.0.  
