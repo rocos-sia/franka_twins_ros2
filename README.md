@@ -25,6 +25,15 @@ Special thanks to Tim Schneider for developing franky and making it available un
 
 ## 📂 Repository Structure
 
+```plaintext
+franka_twins_ros2/
+├── src/
+│   ├── camera/                # Camera node for object detection
+│   ├── franka_twins/          # Main package for dual-arm control  
+│   ├── gripper/               # Gripper control package
+│   └── tosor_msgs/            # Custom message definitions
+├── README.md                  # Project documentation
+
 
 ---
 
@@ -35,6 +44,7 @@ Special thanks to Tim Schneider for developing franky and making it available un
 - libfranka == 0.15.0
 - Franka Control Interface (FCI)
 - Franky
+- YOLOv8 (for object detection)
 
 ---
 
@@ -50,6 +60,12 @@ cd franka_twins_ros2
 2️⃣ **Install dependencies**
 ```bash
 pip install franky-control
+pip install pyrealsense2
+pip install mediapipe
+pip install --upgrade pip
+pip install "protobuf>=5.26.1,<6.0dev"
+pip install "grpcio>=1.64.0"
+pip install ultralytics
 rosdep install -i --from-path src --rosdistro humble -y
 ```
 
@@ -84,13 +100,8 @@ ros2 topic pub /right/gripper/command tosor_msgs/msg/GripperDistance "{distance:
 
 ```bash
 #相机
-pip install pyrealsense2
-pip install mediapipe
-pip install --upgrade pip
-pip install "protobuf>=5.26.1,<6.0dev"
-pip install "grpcio>=1.64.0"
-pip install ultralytics
 
+ros2 run camera yolo_realsense_node
 ```
 ## 📄 License
 
