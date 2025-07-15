@@ -32,7 +32,6 @@ franka_twins_ros2/
 │   ├── franka_twins/          # Main package for dual-arm control  
 │   ├── gripper/               # Gripper control package
 │   ├── script/                # example scripts for the framework
-
 │   └── tosor_msgs/            # Custom message definitions
 ├── README.md                  # Project documentation
 
@@ -190,12 +189,12 @@ password: a
 * 输入密码 `a`，连接成功后可以在 Vscode 中远程编辑和运行运动控制器的代码。
   
 ## 🖥️启动Franka的Web界面（Web Interface）
-**方法1：通过 页面程序启动Web界面**
 ***Franka的控制器（通常是一个工控机或外部PC）自带一个Web界面:***
 * Robot启动/停止
 * 手动模式切换
 * 夹爪配置
 * 网络设置
+**方法1：通过 页面程序启动Web界面**
 ```bash
 cd franka_twins_ros2/
 python3 gui.py
