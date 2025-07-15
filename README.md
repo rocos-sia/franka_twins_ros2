@@ -36,6 +36,37 @@ franka_twins_ros2/
 ├── README.md                  # Project documentation
 
 ```
+📈 系统话题关系图
+```mermaid
+graph TD
+
+subgraph Vision
+    cam[camera node - YOLO Realsense]
+end
+
+subgraph Franka_Control
+    ctrl[franka_twins node - wave]
+end
+
+subgraph Grippers
+    gl[gripper_left node]
+    gr[gripper_right node]
+end
+
+
+cam --|/control_signal (start/stop)|--> ctrl
+
+
+
+ctrl --|/left/gripper/command|--> gl
+ctrl --|/right/gripper/command|--> gr
+
+
+
+
+
+
+```
 ---
 
 ## ⚙️ Requirements
@@ -194,7 +225,7 @@ password: a
 * 手动模式切换
 * 夹爪配置
 * 网络设置
-**方法1：通过 页面程序启动Web界面**
+**方法1：通过GUI页面程序启动Web界面**
 ```bash
 cd franka_twins_ros2/
 python3 gui.py
