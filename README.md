@@ -40,15 +40,15 @@ franka_twins_ros2/
 ```mermaid
 graph TD
 
-subgraph Vision
+subgraph camera
     cam[camera node - YOLO Realsense]
 end
 
-subgraph Franka_Control
+subgraph franka_twins
     ctrl[franka_twins node - wave]
 end
 
-subgraph Grippers
+subgraph gripper
     gl[gripper_left node]
     gr[gripper_right node]
 end
