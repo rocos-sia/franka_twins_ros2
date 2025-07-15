@@ -4,6 +4,7 @@ import threading
 import time
 import shutil
 import webbrowser
+from tkinter import messagebox
 # ========== 配置 ==========
 USER = "landau"
 HOST = "192.168.0.3"

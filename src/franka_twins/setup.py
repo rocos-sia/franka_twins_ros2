@@ -19,7 +19,7 @@ setup(
     license='Apache-2.0',
     tests_require=['pytest'],
     entry_points={
-        'console_scripts': ['wave = franka_twins.wave:main',
+        'console_scripts': ['wave = franka_twins.wave_dual:main',
         ],
     },
 )
