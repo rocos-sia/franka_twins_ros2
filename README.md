@@ -14,10 +14,10 @@ This repository **integrates and extends** the capabilities of [franky](https://
 
 This project was inspired by and partially based on:
 
-- [franky](https://github.com/TimSchneider42/franky): A high-level C++ and Python interface for real-time Cartesian impedance control of Franka Emika Panda arms.  
+- [franky](https://github.com/TimSchneider42/franky): A high-level C++ and Python interface for real-time Cartesian impedance control of Franka arms.  
   We use franky as the core low-level control backend for motion primitives.
 - [libfranka](https://github.com/frankaemika/libfranka): Official C++ interface to the Franka Control Interface.
-- The ROS 2 and MoveIt communities.
+- The ROS 2 communities.
 
 Special thanks to Tim Schneider for developing franky and making it available under the MIT License.
 

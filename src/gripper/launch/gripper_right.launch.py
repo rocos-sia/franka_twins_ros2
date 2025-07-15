@@ -12,7 +12,7 @@ from launch_ros.actions import Node
 #     ])
 def generate_launch_description():
     return LaunchDescription([
-        # Left gripper
+        # Right gripper
         Node(
             package='gripper',
             executable='dh_gripper',
@@ -24,7 +24,7 @@ def generate_launch_description():
             }]
         ),
 
-        # Right gripper
+        # Left gripper
         # Node(
         #     package='gripper',
         #     executable='dh_gripper',
