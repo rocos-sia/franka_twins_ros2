@@ -81,7 +81,14 @@ ctrl --|/right/gripper/command|--> gr
 ---
 
 # 🚀 Quick Start
-<video controls src="image/README/gui.mp4" title="Title"></video>
+👉 操作演示视频（点击播放）
+
+<video controls width="600" src="https://github.com/rocos-sia/franka_twins_ros2/blob/main/image/README/gui.mp4" title="Franka Twins GUI演示"></video>
+
+💡 说明：
+该视频演示了如何通过图形化控制面板一键启动SSH隧道、本地视觉节点和远程挥手动作节点。
+
+
 
 1️⃣ **Clone this repository**
 ```bash
