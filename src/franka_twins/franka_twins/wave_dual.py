@@ -45,6 +45,7 @@ class MotionController:
         
         self._right_gripperCommand(0)  # 打开右侧夹爪
         self._left_gripperCommand(0)
+        time.sleep(2)
     def _left_gripperCommand(self, left_distance):
         msg = GripperDistance()
         msg.distance = left_distance
@@ -162,11 +163,11 @@ class SignalSubscriber(Node):
         else:
             pass  # 可以添加其他信号处理逻辑
 def main():
-    parser = ArgumentParser()
-    parser.add_argument("--host", default="172.16.0.2", help="FCI IP of the robot")
-    args = parser.parse_args()
+    # parser = ArgumentParser()
+    # parser.add_argument("--host", default="172.16.0.2", help="FCI IP of the robot")
+    # args = parser.parse_args()
 
-    left_robot = Robot(args.host)
+    left_robot = Robot("172.16.0.2")
     right_robot = Robot("172.16.1.2")
     left_robot.recover_from_errors()
     left_robot.relative_dynamics_factor = 0.1

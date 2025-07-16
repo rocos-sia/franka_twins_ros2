@@ -81,6 +81,7 @@ ctrl --|/right/gripper/command|--> gr
 ---
 
 # 🚀 Quick Start
+<video controls src="image/README/gui.mp4" title="Title"></video>
 
 1️⃣ **Clone this repository**
 ```bash
@@ -104,15 +105,27 @@ rosdep install -i --from-path src --rosdistro humble -y
 
 ---
 
-3️⃣ **Build the Package**
+3️⃣ **Build the Package And Start**
 
-在工作空间根目录下执行：
+在运动控制器工作空间根目录（/home/landau/Documents/franka_twins_ros2）下执行：
 
 ```bash
 colcon build --symlink-install
 source install/setup.bash
-```
+# 启动机械臂摆手往复运动
+ros2 launch franka_twins_bringup wave_bringup.launch.py
 
+
+
+```
+在视觉主机的工作空间根目录（/home/sun/Documents/GitHub/franka_twins_ros2）下执行：
+
+```bash
+colcon build --symlink-install
+source install/setup.bash
+# 启动YOLO检测节点
+ros2 run camera yolo_realsense_node
+```
 ---
 
 ## 🚀 代码示例运行
