@@ -18,9 +18,19 @@ LOCAL_PORT2 = 9443
 REMOTE_IP2 = "172.16.1.2"
 
 LOCAL_NODES = [("camera", "yolo_realsense_node")]
-REMOTE_NODES = [("franka_twins_bringup", "wave_bringup")]
-LAUNCH_FILE = "wave_bringup.launch.py"
+# REMOTE_NODES = [("franka_twins_bringup", "wave_bringup")]
+# LAUNCH_FILE = "wave_bringup.launch.py"
+LAUNCH_FILES = {
+    "wave_bringup": "wave_bringup.launch.py",
+    "cola_bringup": "cola_bringup.launch.py",
+}
 
+REMOTE_NODES = [
+    ("franka_twins_bringup", "wave_bringup"),
+    ("franka_twins_bringup", "cola_bringup"),  # 新增
+]
+# for pkg, exe in REMOTE_NODES:
+#     print("Remote nodes:", {LAUNCH_FILES[exe]})
 # ========== 初始化界面 ==========
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("blue")
@@ -121,9 +131,9 @@ def start_remote_node(pkg, exe):
         f"bash -c \""
         f"cd {REMOTE_WS_PATH} && "
         "source install/setup.bash && "
-        f"sh -c 'ros2 launch {pkg} {LAUNCH_FILE} > ~/ros2_{exe}.log 2>&1 &' "
+        f"sh -c 'ros2 launch {pkg} {LAUNCH_FILES[exe]} > ~/ros2_{exe}.log 2>&1 &' "
         f"&& sleep 1 "
-        f"&& pgrep -f 'ros2 launch {pkg} {LAUNCH_FILE}' | head -n1 > ~/ros2_{exe}.pid"
+        f"&& pgrep -f 'ros2 launch {pkg} {LAUNCH_FILES[exe]}' | head -n1 > ~/ros2_{exe}.pid"
         "\""
     )
 
@@ -246,6 +256,11 @@ btn_remote_start.grid(row=2, column=0, padx=10, pady=10)
 
 btn_remote_stop = ctk.CTkButton(btn_frame, text="⏹️ 关闭远程挥手节点", width=200, command=handle_stop_remote_nodes)
 btn_remote_stop.grid(row=2, column=1, padx=10, pady=10)
+btn_remote_start_cola = ctk.CTkButton(btn_frame, text="🧃 启动 Cola 运动节点", width=200, command=lambda: run_threaded(start_remote_node, "franka_twins_bringup", "cola_bringup"))
+btn_remote_start_cola.grid(row=3, column=0, padx=10, pady=10)
+
+btn_remote_stop_cola = ctk.CTkButton(btn_frame, text="⏹️ 关闭 Cola 节点", width=200, command=lambda: run_threaded(stop_remote_nodes, ("franka_twins_bringup", "cola_bringup")))
+btn_remote_stop_cola.grid(row=3, column=1, padx=10, pady=10)
 
 # ========== 运行主窗口 ==========
 app.mainloop()

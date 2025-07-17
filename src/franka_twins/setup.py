@@ -11,6 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
          ('share/' + package_name + '/launch', ['launch/wave.launch.py']),
+         ('share/' + package_name + '/launch', ['launch/cola.launch.py']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -21,6 +22,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': ['wave = franka_twins.wave_dual:main',
+        'cola = franka_twins.cola_dual:main'
         ],
     },
     
