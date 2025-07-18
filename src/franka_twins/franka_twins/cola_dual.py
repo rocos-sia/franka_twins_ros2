@@ -28,7 +28,7 @@ class MotionController:
         self.right_InitJoints = right_InitJoints
         self.left_TargetJoints = left_TargetJoints
         self.left_InitJoints=left_InitJoints
-        self.people_joints=[2.29221794 , 0.66549244, -0.34744742 ,-1.78037702,  0.12384098  2.65005514,0.4510016]
+        self.people_joints=[2.29221794 , 0.66549244, -0.34744742 ,-1.78037702,  0.12384098 , 2.65005514,0.4510016]
         self.stop_event = threading.Event()
         self.thread = threading.Thread(target=self.motion_loop)
         self.thread.daemon = True  # 确保主程序退出时线程自动退出
