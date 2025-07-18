@@ -101,13 +101,16 @@ cd franka_twins_ros2
 
 2️⃣ **Relative dependencies**
 ```bash
+sudo apt install sshpass
 pip install franky-control
 pip install pyrealsense2
 pip install mediapipe
 pip install --upgrade pip
 pip install "protobuf>=5.26.1,<6.0dev"
 pip install "grpcio>=1.64.0"
-pip install ultralytics
+pip install customtkinter
+pip install -i https://pypi.tuna.tsinghua.edu.cn/simple ultralytics
+
 rosdep install -i --from-path src --rosdistro humble -y
 ```
 
